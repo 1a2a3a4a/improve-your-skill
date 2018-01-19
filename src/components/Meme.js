@@ -20,12 +20,10 @@ class Meme extends Component {
         return(
             <div >
                 <Sound
-                    url={this.props.sound}
+                    url={this.props.audio}
                     playStatus={Sound.status.PLAYING}
-
-
                 />
-                <img style={position}alt="meme" src={this.props.image_source}/>
+                <img style={position} alt="meme" src={this.props.image_source}/>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Meme from './components/Meme';
-
+import audio_path from './audio/sound_path';
 class App extends Component {
   constructor(props) {
       super(props);
@@ -30,10 +30,10 @@ class App extends Component {
     //This row below randomizes the image in the list uniformly. You can change this to random the way you like it.
     const image = this.state.images[Math.floor(Math.random() * this.state.images.length)];
     //The url to the audo file to be played when clicked, can be changed to a relative path as well
-    const sound_path = 'https://vignette.wikia.nocookie.net/leagueoflegends/images/3/34/MasterYi.taunt01.ogg/revision/latest?cb=20130713221434'
+
     const newMeme = <Meme key={this.state.key}
                           image_source={image}
-                          sound={sound_path}
+                          audio={audio_path}
                     />;
     const nextMeme = [...this.state.memes, newMeme];
     this.setState({ memes: nextMeme, key: this.state.key + 1});
