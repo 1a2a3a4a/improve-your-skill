@@ -9,9 +9,17 @@ class App extends Component {
       this.state = {
           memes: [],
           key: 0,
-          images: this.importImages()
+          images: this.importImages('./images/meme_images')
 
       };
+      this.background_image_style = {
+          backgroundImage:"url(" +  this.importBackgroundImage()[0]+ ")",
+          width: '100%',
+          height:'100%',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+      }
   }
 
   /*
@@ -21,6 +29,12 @@ class App extends Component {
     const r = require.context('./images/meme_images', false, /\.(png|jpe?g|svg|jpg)$/)
     return r.keys().map(r);
   }
+  importBackgroundImage(){
+    const r = require.context('./images/background_image', false, /\.(png|jpe?g|svg|jpg|jpeg)$/)
+
+    return r.keys().map(r);
+  }
+
 
     /*
     * Fires when the user has clicked on the website. It takes a random image from the images list
@@ -42,8 +56,8 @@ class App extends Component {
 
   render() {
     return (
-      <div  className="App" onClick={this.onClickNewMeme}>
-          <div className="bg">
+      <div className="App" onClick={this.onClickNewMeme}>
+          <div style={this.background_image_style}>
             {this.state.memes}
           </div>
       </div>
