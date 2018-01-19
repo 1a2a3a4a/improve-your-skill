@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Meme from './components/Meme';
-import audio_path from './audio/sound_path';
+import audio_path from './audio/audio_paths';
 class App extends Component {
   constructor(props) {
       super(props);
