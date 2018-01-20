@@ -43,9 +43,30 @@ class App extends Component {
      */
   onClickNewMeme = () => {
     //This row below randomizes the image in the list uniformly. You can change this to random the way you like it.
-    const image = this.state.images[Math.floor(Math.random() * this.state.images.length)];
-    //The url to the audo file to be played when clicked, can be changed to a relative path as well
+    //const image = this.state.images[Math.floor(Math.random() * this.state.images.length)];
+    //changing random**
+    const random = Math.random();
+    console.log(random)
+    let image = null;
+    switch(true){
+        case random < 0.8:
+            image = this.state.images[0];
+            break;
+        case random > 0.8 && random < 0.9:
+            image = this.state.images[1]
+            break;
+        case random > 0.9 && random < 0.98:
+            image = this.state.images[2]
+            break;
+        case random >= 0.98:
+            image = this.state.images[3]
+            break;
+        default:
+            image =this.state.images[0]
+            break;
+    }
 
+    //The url to the audo file to be played when clicked, can be changed to a relative path as well
     const newMeme = <Meme key={this.state.key}
                           image_source={image}
                           audio={audio_path}
